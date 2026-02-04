@@ -31,3 +31,10 @@ sign x
     | x < 0 = -1
     | x > 0 = 1
     | otherwise = 0
+
+howManyEqual :: Int -> Int -> Int -> Int
+howManyEqual x y z 
+    | x == y && x == z = 2
+    | x == y || y == z || x == z = 1
+    | otherwise = 0
+    

@@ -1,3 +1,4 @@
+import Control.Monad (when)
 --
 
 heartMonitor :: Int -> Int -> String
@@ -37,4 +38,8 @@ howManyEqual x y z
     | x == y && x == z = 2
     | x == y || y == z || x == z = 1
     | otherwise = 0
-    
+
+sumDiagonalLengths :: Float -> Float -> Float -> Float
+sumDiagonalLengths l1 l2 l3 = sumDiagonal l1 + sumDiagonal l2 + sumDiagonal l3
+    where
+    sumDiagonal l = sqrt (2 * l ^ 2)

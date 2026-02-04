@@ -19,3 +19,9 @@ pizzaCalories diameter toppings = (11.5 + toppingCalories) * area
         | toppings == "tuna" = 4
         | toppings == "veggie" = 2.5
         | otherwise = 0
+
+--1
+absolute :: Int -> Int
+absolute x
+    | x < 0 = -x
+    | otherwise = x

@@ -54,4 +54,4 @@ averageThree x y z = fromIntegral(x + y + z) / 3
 
 --10
 absolute :: Int -> Int
-absolute x = if x < 0 then x * (-1) else x
+absolute x = if x < 0 then (-x) else x

@@ -61,3 +61,14 @@ howManyAboveAverage x y z = aboveAverage (fromIntegral x) avg + aboveAverage (fr
         avg = averageThree x y z
         averageThree x y z = fromIntegral(x + y + z) / 3    
         aboveAverage x avg = if x > avg then 1 else 0
+
+--7
+validDate :: Int -> Int -> Bool
+validDate day month
+    | month == 4 = day <= 28
+    | month <= 7 = comp day month 30 31
+    | otherwise = comp day month 31 30
+    where
+        comp day month v1 v2      
+            | even month = day <= v1
+            | otherwise = day <= v2

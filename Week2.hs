@@ -1,4 +1,3 @@
-import Control.Monad (when)
 --
 
 heartMonitor :: Int -> Int -> String
@@ -27,19 +26,38 @@ absolute x
     | x < 0 = -x
     | otherwise = x
 
+--2
 sign :: Int -> Int
 sign x
     | x < 0 = -1
     | x > 0 = 1
     | otherwise = 0
 
+--3
 howManyEqual :: Int -> Int -> Int -> Int
 howManyEqual x y z 
     | x == y && x == z = 2
     | x == y || y == z || x == z = 1
     | otherwise = 0
 
+--4
 sumDiagonalLengths :: Float -> Float -> Float -> Float
 sumDiagonalLengths l1 l2 l3 = sumDiagonal l1 + sumDiagonal l2 + sumDiagonal l3
     where
     sumDiagonal l = sqrt (2 * l ^ 2)
+
+--5
+taxiFare :: Int -> Float
+taxiFare km = 2.20 + distPrice (fromIntegral km)
+    where
+    distPrice km 
+        | km > 10 = 5 + (km - 10) * 0.30
+        | otherwise = 0.50 * km
+
+--6
+howManyAboveAverage :: Int -> Int -> Int -> Int
+howManyAboveAverage x y z = aboveAverage (fromIntegral x) avg + aboveAverage (fromIntegral y) avg + aboveAverage (fromIntegral z) avg
+    where
+        avg = averageThree x y z
+        averageThree x y z = fromIntegral(x + y + z) / 3    
+        aboveAverage x avg = if x > avg then 1 else 0

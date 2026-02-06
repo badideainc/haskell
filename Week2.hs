@@ -36,8 +36,8 @@ sign x
 --3
 howManyEqual :: Int -> Int -> Int -> Int
 howManyEqual x y z 
-    | x == y && x == z = 2
-    | x == y || y == z || x == z = 1
+    | x == y && x == z = 3
+    | x == y || y == z || x == z = 2
     | otherwise = 0
 
 --4
@@ -85,4 +85,55 @@ daysInMonth month year = validDate month (if mod year 4 == 0 then 1 else 0)
                 comp month v1 v2      
                     | even month = v1
                     | otherwise = v2
+
+{-1:
+sumThree 3 5 7
+3 + 5 + 7 =
+8 + 7 =
+15
+
+sumThree 8 (1 + 3) 2
+sumThree 8 4 2
+8 + 4 + 2
+12 + 2
+14
+-}
+
+{-2:
+threeDifferent 1 4 2
+1 /= 4 && 4 /= 2 && 1 /= 2
+True && 4 /= 2 && 1 /= 2
+True && True && 1/= 2
+True && True && True
+True && True
+True
+
+threeDifferent 1 7 7
+1 /= 7 && 7 /= 7 && 1 /= 7
+True && 7 /= 7 && 1 /= 7
+True && False && 1 /= 7
+True && False && True
+False && True
+False
+-}
+
+{-3:
+howManyEqual 3 5 2
+3 == 5 && 3 == 2
+False && False
+False
+3 == 5 || 5 == 2 || 3 == 2
+False || False || False
+False
+0
+
+howManyEqual 5 2 5
+5 == 2 && 5 == 5
+False && True
+False
+5 == 2 || 2 == 5 || 5 == 5
+False || False || True
+True
+2
+-}
 

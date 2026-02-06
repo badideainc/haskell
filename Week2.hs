@@ -65,10 +65,24 @@ howManyAboveAverage x y z = aboveAverage (fromIntegral x) avg + aboveAverage (fr
 --7
 validDate :: Int -> Int -> Bool
 validDate day month
-    | month == 4 = day <= 28
+    | month == 2 = day <= 28
     | month <= 7 = comp day month 30 31
     | otherwise = comp day month 31 30
     where
         comp day month v1 v2      
             | even month = day <= v1
             | otherwise = day <= v2
+
+--8
+daysInMonth :: Int -> Int -> Int
+daysInMonth month year = validDate month (if mod year 4 == 0 then 1 else 0)
+    where
+        validDate month leap
+            | month == 2 = 28 + leap
+            | month <= 7 = comp month 30 31
+            | otherwise = comp month 31 30
+            where
+                comp month v1 v2      
+                    | even month = v1
+                    | otherwise = v2
+

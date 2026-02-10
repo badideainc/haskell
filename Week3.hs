@@ -69,4 +69,5 @@ infix 3 &&
 
 (&&):: Bool -> Bool -> Bool
 False && _ = False
-_ && _ = True
+_ && False = False
+True && a = True

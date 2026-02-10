@@ -89,3 +89,8 @@ daysInMonth 2 = 28
 daysInMonth month
   | month > 7 = 30 + if even month then 1 else 0
   | otherwise = 30 + if odd month then 1 else 0
+
+sumOfNum :: Int -> Int
+sumOfNum n
+ | n == 0 = 0
+ | otherwise = n + sumOfNum (n - 1)

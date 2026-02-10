@@ -65,11 +65,12 @@ howManyAboveAverage x y z = aboveAverage (fromIntegral x) avg + aboveAverage (fr
 --7
 validDate :: Int -> Int -> Bool
 validDate day month
+    | month > 12 || month < 0 = False
     | month == 2 = day <= 28
     | month <= 7 = comp day month 30 31
     | otherwise = comp day month 31 30
     where
-        comp day month v1 v2      
+        comp day month v1 v2
             | even month = day <= v1
             | otherwise = day <= v2
 
@@ -78,6 +79,7 @@ daysInMonth :: Int -> Int -> Int
 daysInMonth month year = validDate month (if mod year 4 == 0 then 1 else 0)
     where
         validDate month leap
+            | month > 12 || month < 0 = 0
             | month == 2 = 28 + leap
             | month <= 7 = comp month 30 31
             | otherwise = comp month 31 30
@@ -137,3 +139,4 @@ True
 2
 -}
 
+--cmd /k "cd C:\Users\up2267744\OneDrive - University of Portsmouth\Desktop\Haskell & C:\ghcup\bin\ghci Week2.hs"

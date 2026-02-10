@@ -2,6 +2,7 @@
 -- define our own version
 
 import Prelude hiding ((||), (&&))
+import GHC.Base (TrName(TrNameD))
 
 -- The following line declares the || operator (which we are about to
 -- re-define) to be right associative and to have precedence 2. This
@@ -56,6 +57,16 @@ fibonacci n = fibonacci (n - 1) + fibonacci (n - 2)
 --1
 infix 3 &&
 
+-- (&&):: Bool -> Bool -> Bool
+-- True && True = True
+-- False && True = False
+-- True && False = False
+-- False && False = False
+
+-- (&&):: Bool -> Bool -> Bool
+-- True && True = True
+-- _ && _ = False
+
 (&&):: Bool -> Bool -> Bool
-True && True = True
 False && _ = False
+_ && _ = True

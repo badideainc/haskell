@@ -90,7 +90,14 @@ daysInMonth month
   | month > 7 = 30 + if even month then 1 else 0
   | otherwise = 30 + if odd month then 1 else 0
 
+--5
 sumOfNum :: Int -> Int
 sumOfNum n
  | n == 0 = 0
  | otherwise = n + sumOfNum (n - 1)
+
+ --6
+sumSquares:: Int -> Int
+sumSquares n
+ | n == 0 = 0
+ | otherwise = n ^ 2 + sumSquares (n - 1)

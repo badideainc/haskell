@@ -11,21 +11,21 @@ import Prelude hiding ((||))
 infixr 2 ||
 
 -- A naive re-implementation of the Prelude operator ||
-(||) :: Bool -> Bool -> Bool
-True || True = True
-False || True = True
-True || False = True
-False || False = False
+-- (||) :: Bool -> Bool -> Bool
+-- True || True = True
+-- False || True = True
+-- True || False = True
+-- False || False = False
 
--- An alternative re-implementation
---(||) :: Bool -> Bool -> Bool
---False || False   = False
---_ || _           = True
+--An alternative re-implementation
+-- (||) :: Bool -> Bool -> Bool
+-- False || False   = False
+-- _ || _           = True
 
 -- Another alternative re-implementation
---(||) :: Bool -> Bool -> Bool
---True || _     =  True
---False || a    = a
+(||) :: Bool -> Bool -> Bool
+True || _     =  True
+False || a    = a
 
 fact :: Int -> Int
 fact n

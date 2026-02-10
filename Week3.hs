@@ -43,3 +43,13 @@ divide :: Int -> Int -> Int
 divide n m
   | n < m = 0
   | otherwise = 1 + divide (n - m) m
+
+fibonacci :: Int -> Int
+-- fibonacci n
+-- | n == 0 = 0
+-- | n == 1 = 1
+-- | otherwise = fibonacci (n - 1) + fibonacci (n - 2)
+fibonacci 0 = 0
+fibonacci 1 = 1
+fibonacci n = fibonacci (n - 1) + fibonacci (n - 2)
+

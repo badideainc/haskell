@@ -82,3 +82,10 @@ exOr _ _ = False
 ifThenElse :: Bool -> Int -> Int -> Int
 ifThenElse True a b = a
 ifThenElse False a b = b
+
+--4
+daysInMonth :: Int -> Int
+daysInMonth 2 = 28
+daysInMonth month
+  | month > 7 = 30 + if even month then 1 else 0
+  | otherwise = 30 + if odd month then 1 else 0

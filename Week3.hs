@@ -71,3 +71,10 @@ infix 3 &&
 False && _ = False
 _ && False = False
 True && a = True
+
+--2
+exOr :: Bool -> Bool -> Bool
+exOr True False = True
+exOr False True = True
+exOr _ _ = False
+

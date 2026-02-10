@@ -1,7 +1,7 @@
 -- We don't import '||' from the prelude, so that we can
 -- define our own version
 
-import Prelude hiding ((||))
+import Prelude hiding ((||), (&&))
 
 -- The following line declares the || operator (which we are about to
 -- re-define) to be right associative and to have precedence 2. This
@@ -53,3 +53,9 @@ fibonacci 0 = 0
 fibonacci 1 = 1
 fibonacci n = fibonacci (n - 1) + fibonacci (n - 2)
 
+--1
+infix 3 &&
+
+(&&):: Bool -> Bool -> Bool
+True && True = True
+False && _ = False

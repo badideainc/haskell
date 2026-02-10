@@ -1,8 +1,7 @@
 -- We don't import '||' from the prelude, so that we can
 -- define our own version
 
-import Prelude hiding ((||), (&&))
-import GHC.Base (TrName(TrNameD))
+import Prelude hiding ((||), (&&), gcd)
 
 -- The following line declares the || operator (which we are about to
 -- re-define) to be right associative and to have precedence 2. This
@@ -101,3 +100,32 @@ sumSquares:: Int -> Int
 sumSquares n
  | n == 0 = 0
  | otherwise = n ^ 2 + sumSquares (n - 1)
+
+ --7
+power :: Int -> Int -> Int
+power n p
+  | p == 0 = 1
+  | otherwise = n * power n (p - 1)
+
+--8
+sumFromTo :: Int -> Int -> Int
+sumFromTo nl nh
+  | nl > nh = 0
+  | nl == nh = nl
+  | otherwise = nh + sumFromTo nl (nh - 1)
+
+--9
+gcd :: Int -> Int -> Int
+gcd n p
+  | n == p = p
+  | n > p = gcd (n - p) p
+  | otherwise = gcd n (p - n)
+
+--10
+intSquareRoot :: Int -> Int
+intSquareRoot n = findRoot n n
+
+findRoot :: Int -> Int -> Int
+findRoot n s
+ | s * s <= n = s
+ | otherwise = findRoot n (s - 1)

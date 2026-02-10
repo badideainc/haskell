@@ -78,3 +78,7 @@ exOr True False = True
 exOr False True = True
 exOr _ _ = False
 
+--3
+ifThenElse :: Bool -> Int -> Int -> Int
+ifThenElse True a b = a
+ifThenElse False a b = b

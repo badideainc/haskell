@@ -136,4 +136,13 @@ sumOfNumP :: Int -> Int
 sumOfNumP 0 = 0
 sumOfNumP n = n + sumOfNumP(n - 1)
 
+--6b
+sumOfSquaresP :: Int -> Int
+sumOfSquaresP 0 = 0
+sumOfSquaresP n = n ^ 2 + sumOfSquaresP (n - 1)
+
+--7b
+powerP :: Int -> Int -> Int
+powerP _ 0 = 1
+powerP n p = n * power n (p - 1)
 

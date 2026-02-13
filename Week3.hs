@@ -129,3 +129,11 @@ findRoot :: Int -> Int -> Int
 findRoot n s
  | s * s <= n = s
  | otherwise = findRoot n (s - 1)
+
+--11
+--5b
+sumOfNumP :: Int -> Int
+sumOfNumP 0 = 0
+sumOfNumP n = n + sumOfNumP(n - 1)
+
+

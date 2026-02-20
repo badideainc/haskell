@@ -63,4 +63,4 @@ firstSquares x = [i ^ 2 | i <- [1.. x]]
 --6
 
 capitalise :: String -> String
-capitalise word = [toUpper i | i <- [0 .. word]]
+capitalise word = [toUpper i | i <- word]

@@ -25,3 +25,6 @@ minAndMax :: Int -> Int -> (Int,Int)
 minAndMax x y 
     | x <= y            = (x,y)
     | otherwise         = (y,x)
+
+sumDifference:: Int -> Int -> (Int, Int)
+sumDifference x y = (x + y, x - y)

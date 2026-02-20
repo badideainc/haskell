@@ -64,3 +64,35 @@ firstSquares x = [i ^ 2 | i <- [1.. x]]
 
 capitalise :: String -> String
 capitalise word = [toUpper i | i <- word]
+
+--7
+onlyDigits :: String -> String
+onlyDigits word = [i | i <- word, isDigit i]
+
+--8
+
+capMarks :: [StudentMark] -> [StudentMark]
+capMarks marks = [ capMark (stu,mk) | (stu,mk) <- marks]
+
+--9
+
+gradeStudents :: [StudentMark] -> [(String, Char)]
+gradeStudents marks = [(stu, grade (stu, mk)) | (stu, mk) <- marks]
+
+--10
+
+-- duplicate :: String -> Int -> String
+-- duplicate _ 0 = ""
+-- duplicate word i = word ++ duplicate word (i - 1)
+
+duplicate :: String -> Int -> String
+duplicate word x =  concat [word | i <- [1 .. x]]
+
+--11
+
+divisors :: Int -> [Int]
+divisors num = [i | i <- [1 .. num], mod num i == 0]
+
+--12
+isPrime :: Int -> Bool
+isPrime x = length (divisors x) == 2

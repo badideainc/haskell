@@ -96,3 +96,10 @@ divisors num = [i | i <- [1 .. num], mod num i == 0]
 --12
 isPrime :: Int -> Bool
 isPrime x = length (divisors x) == 2
+
+--13
+split :: [(a, b)] -> ([a], [b])
+split x = ([fst i | i <- x], [snd i | i <- x])
+
+split' :: [(a, b)] -> ([a], [b])
+split' x = ([a | (a, b) <- x], [b | (a, b) <- x])

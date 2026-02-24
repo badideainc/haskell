@@ -103,3 +103,5 @@ split x = ([fst i | i <- x], [snd i | i <- x])
 
 split' :: [(a, b)] -> ([a], [b])
 split' x = ([a | (a, b) <- x], [b | (a, b) <- x])
+
+--cmd /k "cd /d $(CURRENT_DIRECTORY) & C:\ghcup\bin\ghci $(FILE_NAME)"

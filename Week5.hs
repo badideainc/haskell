@@ -37,3 +37,8 @@ reverse (x:xs)  = reverse xs ++ [x]
 zip :: [a] -> [b] -> [(a,b)]
 zip (x:xs) (y:ys)  = (x,y) : zip xs ys
 zip _ _            = []
+
+--1
+countSpaces :: String -> Int
+countSpaces [] = 0
+countSpaces (x: xs) = if head xs == ' ' then 1 else 0 + countSpaces xs

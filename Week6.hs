@@ -89,4 +89,4 @@ removeFirst f (x: xs) = if f x then xs else x: removeFirst f xs
 --11
 
 removeLast ::(a -> Bool) -> [a] -> [a]
-removeLast f x = removeFirst f x
+removeLast f (x: xs) = removeFirst f ((\x xs -> xs: x) [])

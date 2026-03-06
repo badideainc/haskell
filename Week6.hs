@@ -3,7 +3,6 @@
 -}
 
 import Data.Char
-import Data.List (intersect)
 
 twice :: (Int -> Int) -> Int -> Int
 twice f x = f (f x)
@@ -75,3 +74,19 @@ countBetween a b = length . filter (>=a) . filter(<=b)
 
 alwaysPositive :: (Float -> Float) -> [Float] -> Bool
 alwaysPositive f x = length ( filter (> 0) ( map f x)) == length x
+
+--9
+
+productSquareRoots :: [Float] -> Float
+productSquareRoots = sum . squareRoots
+
+--10
+
+removeFirst :: (a -> Bool) -> [a] -> [a]
+removeFirst _ [] = []
+removeFirst f (x: xs) = if f x then xs else x: removeFirst f xs
+
+--11
+
+removeLast ::(a -> Bool) -> [a] -> [a]
+removeLast f x = removeFirst f x

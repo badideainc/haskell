@@ -58,7 +58,7 @@ sumSquares x = sum ( map (^2) x)
 --5
 
 zeroToTen :: [Int] -> [Int]
-zeroToTen = filter (>0) . filter (<10)
+zeroToTen = filter (>=0) . filter (<=10)
 
 --6
 
@@ -68,7 +68,7 @@ squareRoots = filter (>=0) . map sqrt
 --7
 
 countBetween :: Float -> Float -> [Float] -> Int
-countBetween a b = length . filter (>=a) . filter(<=b) 
+countBetween a b = length . filter (>=a) . filter (<=b)
 
 --8
 
@@ -89,4 +89,8 @@ removeFirst f (x: xs) = if f x then xs else x: removeFirst f xs
 --11
 
 removeLast ::(a -> Bool) -> [a] -> [a]
-removeLast f (x: xs) = removeFirst f ((\x xs -> xs: x) [])
+removeLast f (x: xs) = reverse (removeFirst f (reverse (x: xs)))
+
+--12
+zeroToTen' :: [Int] -> [Int]
+zeroToTen' = filter (\x -> x >= 0 && x <= 10)

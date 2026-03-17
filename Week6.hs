@@ -89,8 +89,18 @@ removeFirst f (x: xs) = if f x then xs else x: removeFirst f xs
 --11
 
 removeLast ::(a -> Bool) -> [a] -> [a]
-removeLast f (x: xs) = reverse (removeFirst f (reverse (x: xs)))
+removeLast f = reverse . removeFirst f . reverse
 
 --12
 zeroToTen' :: [Int] -> [Int]
 zeroToTen' = filter (\x -> x >= 0 && x <= 10)
+
+--13
+alwaysPositive' :: (Float -> Float) -> [Float] -> Bool
+alwaysPositive' f = foldr (\x xs -> f x > 0 && xs) True
+
+productSquareRoots' :: [Float] -> Float
+productSquareRoots' = foldr (\x xs -> if x > 0 then sqrt x * xs else xs) 1
+
+reverse' :: [a] -> [a]
+reverse' = foldr (\x xs -> xs ++ [x]) []

@@ -58,3 +58,33 @@ height (Node _ st1 st2) = 1 + max (height st1) (height st2)
 sumValues :: Tree -> Int
 sumValues Null = 0
 sumValues (Node n st1 st2) = n + sumValues st1 + sumValues st2
+
+--1
+
+data Month = January | February | March | April | May | June | July | August | September | October | November | December
+             deriving (Eq,Ord,Show,Read)
+
+data Season = Spring | Summer | Autumn | Winter
+             deriving (Eq,Ord,Show,Read)
+
+--2
+season :: Month -> (Month, Season)
+season March = (March, Spring)
+season April = (April, Spring)
+season May = (May, Spring)
+season June = (June, Summer)
+season July = (July, Summer)
+season August = (August, Summer)
+season September = (September, Autumn)
+season October = (October, Autumn)
+season November = (November, Autumn)
+season a = (a, Winter)
+
+--3
+numberOfDays :: Month -> Int -> Int
+numberOfDays February year = 28 + if mod year 4 == 0 then 1 else 0
+numberOfDays April year = 30
+numberOfDays June year = 30
+numberOfDays September year = 30
+numberOfDays November year = 30 
+numberOfDays _ year = 31

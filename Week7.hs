@@ -1,3 +1,4 @@
+
 -- Day algebraic type
 data Day = Mon | Tue | Wed | Thur | Fri | Sat | Sun
            deriving (Eq,Ord,Show,Read)
@@ -24,6 +25,7 @@ betterStudent (Student s1 m1) (Student s2 m2)
 -- Shapes algebraic type 
 data Shape = Circle Float |
              Rectangle Float Float
+             deriving (Show)
 
 area :: Shape -> Float
 area (Circle r)      = pi * r * r
@@ -88,3 +90,48 @@ numberOfDays June year = 30
 numberOfDays September year = 30
 numberOfDays November year = 30 
 numberOfDays _ year = 31
+
+--4
+data Point = Point Float Float
+    deriving (Show)
+
+--5
+data PositionedShape = PositionedShape Shape Point
+    deriving (Show)
+
+--6
+move :: PositionedShape -> Float -> Float -> PositionedShape
+move (PositionedShape shape (Point x y)) dx dy = PositionedShape shape (Point (x + dx) (y + dy))
+
+--7
+numberOfNodes :: Tree -> Int
+numberOfNodes Null = 0
+numberOfNodes (Node _ left right) = 1 + numberOfNodes left + numberOfNodes right
+
+--8
+isMember :: Int -> Tree -> Bool
+isMember _ Null = False
+isMember n (Node m left right) = n == m || isMember n left || isMember n right
+
+--9
+leaves :: Tree -> [Int]
+leaves Null = []
+leaves (Node n Null Null) = [n]
+leaves (Node _ left right) = leaves left ++ leaves right
+
+--10
+inOrder:: Tree -> [Int]
+inOrder Null = []
+inOrder (Node n left right) = inOrder left ++ [n] ++ inOrder right
+
+--11
+insert :: Int -> Tree -> Tree
+insert n Null = Node n Null Null
+insert n (Node m left right)
+    | n < m   = Node m (insert n left) right
+    | n > m   = Node m left (insert n right)
+    | otherwise = Node m left right
+
+--12
+listToSearchTree :: [Int] -> Tree
+listToSearchTree = foldr insert Null

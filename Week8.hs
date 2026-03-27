@@ -99,3 +99,28 @@ sumNInts = do
     putStr "How many numbers do you want to sum? "
     n <- getInt
     sumInts 0 n
+
+--6
+--a
+
+addWord :: String -> [String] -> [String]
+addWord str xs = xs ++ [str]
+
+--b
+
+wordsToString :: [String] -> String
+wordsToString = foldr (\w xs -> w ++ "\n" ++ xs) ""
+
+--c
+
+wordsOfLength :: Int -> [String] -> [String]
+wordsOfLength n = foldr (\w acc -> if length w == n then w : acc else acc) []
+
+--d
+main :: IO ()
+main = do
+    contents <- readFile "words.txt"
+    let xs = (read contents :: [String])
+    let newXs = addWord "Lemon" xs
+    putStrLn (wordsToString newXs)
+    writeFile "words.txt" (show newXs)

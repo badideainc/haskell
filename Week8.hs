@@ -34,3 +34,68 @@ palLines = do
         putStrLn (isPalindrome str)
         palLines
 
+--1
+
+greeting :: IO ()
+greeting = do 
+    putStr "What is your name? "
+    name <- getLine
+    putStrLn ("Hello, " ++ name)
+
+--2
+
+addTwoNumbers :: IO ()
+addTwoNumbers = do
+    putStr "Enter a number: "
+    num1 <- getInt
+    putStr "Enter a second number: "
+    num2 <- getInt
+    print (num1 + num2)
+
+--3
+
+copyFile :: IO ()
+copyFile = do
+    putStr "Enter source filename: "
+    file <- getLine
+    putStr "Enter destination filename: "
+    destFile <- getLine
+    contents <- readFile file
+    writeFile destFile contents
+
+--4
+
+buildString :: [String] -> IO ()
+buildString xs = do
+    print ("Line is now " ++ show  (reverse xs))
+    putStr "Enter a line: "
+    str <- getLine
+    if str == "" then
+        return ()
+    else
+        buildString (str : xs)
+
+listBuilder :: IO ()
+listBuilder = do
+    putStr "Enter a line: "
+    str <- getLine
+    buildString [str]
+
+--5
+sumInts :: Int -> Int -> IO ()
+sumInts total n = do
+    if n == 0 then
+        print total
+    else do
+        putStr "Enter a number: "
+        num <- getInt
+        if num == 0 then
+            return ()
+        else
+            sumInts (total + num) (n - 1)
+
+sumNInts :: IO ()
+sumNInts = do
+    putStr "How many numbers do you want to sum? "
+    n <- getInt
+    sumInts 0 n

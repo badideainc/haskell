@@ -123,4 +123,7 @@ main = do
     let xs = (read contents :: [String])
     let newXs = addWord "Lemon" xs
     putStrLn (wordsToString newXs)
+    putStr "Enter a length: "
+    lengthWord <- getInt
+    putStrLn (wordsToString (wordsOfLength lengthWord newXs))
     writeFile "words.txt" (show newXs)
